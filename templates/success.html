@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Спасибо!</title>
+  <meta http-equiv="refresh" content="5; url=/" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Hero-блок -->
+  <section class="success-hero">
+    <div class="hero-overlay">
+      <div class="success-container">
+
+        <!-- Галочка -->
+        <div class="checkmark-container">
+          <svg class="checkmark" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+          </svg>
+        </div>
+
+        <!-- Сообщение -->
+        <h1>Форма отправлена!</h1>
+        <p>С вами скоро свяжутся.</p>
+        <a href="/" class="btn">Вернуться на главную</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2025 Dom-Stroy. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

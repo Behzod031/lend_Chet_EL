@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лендинг-пейдж</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Hero-секция с фоном и формой -->
+  <header class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Добро пожаловать!</h1>
+        <p>Заполните форму для получения дополнительной информации</p>
+
+        <form method="POST" action="/" class="hero-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Ваш номер телефона" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="country" placeholder="Ваша страна" required>
+          </div>
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2025 Dom-Stroy. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
