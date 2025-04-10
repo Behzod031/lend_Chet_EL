@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template,redirect, request
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -30,7 +30,7 @@ def index():
         worksheet.append_row([name, phone, country])
 
         # Показываем страницу с сообщением об успешной отправке
-        return render_template('success.html')
+        return redirect('https://t.me/Xon_Saroy_Onlayn_Chat_bot')
     return render_template('index.html')
 
 if __name__ == '__main__':
