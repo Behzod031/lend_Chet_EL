@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qo‘shimcha ma’lumot</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.3">
+  <title>Лендинг-пейдж</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-  <!-- Hero-секция -->
+  <!-- Hero-секция с фоном и формой -->
   <header class="hero">
     <div class="hero-overlay">
       <div class="hero-content">
-        <h1>
-          Qo‘shimcha ma’lumot<br>
-          uchun shaklni to‘ldiring
-        </h1>
+        <h1>Добро пожаловать!</h1>
+        <p>Заполните форму для получения дополнительной информации</p>
+
         <form method="POST" action="/" class="hero-form">
           <div class="form-group">
-            <input type="text" name="name" placeholder="Ismingiz" required>
+            <input type="text" name="name" placeholder="Ваше имя" required>
           </div>
           <div class="form-group">
-            <input type="tel" name="phone" placeholder="Telefon raqamingiz" required>
+            <input type="tel" name="phone" placeholder="Ваш номер телефона" required>
           </div>
           <div class="form-group">
-            <input type="text" name="country" placeholder="Davlatingiz" required>
+            <input type="text" name="country" placeholder="Ваша страна" required>
           </div>
-          <button type="submit">Yuborish</button>
+          <button type="submit">Отправить</button>
         </form>
       </div>
     </div>
@@ -35,7 +34,7 @@
   <!-- Футер -->
   <footer class="footer">
     <div class="footer-container">
-      <p>© 2025 Dom-Stroy. Barcha huquqlar himoyalangan.</p>
+      <p>© 2025 Dom-Stroy. Все права защищены.</p>
     </div>
   </footer>
 
