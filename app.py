@@ -1,42 +1,39 @@
-import os
 from flask import Flask, render_template, request
 import gspread
 from google.oauth2.service_account import Credentials
+from datetime import datetime
 
 app = Flask(__name__)
 
-# Путь к JSON-файлу с ключами: из переменной окружения или по умолчанию рядом с app.py
-SERVICE_ACCOUNT_FILE = os.environ.get(
-    "GOOGLE_CREDENTIALS_PATH",
-    os.path.join(os.path.dirname(__file__), "credentials.json")
-)
-
+SERVICE_ACCOUNT_FILE = r"C:\Users\XS-NB-OP\PycharmProjects\land_chet_EL\credentials.json"
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
 ]
-
-# Авторизация в Google Sheets
 creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 client = gspread.authorize(creds)
 
-# Открываем таблицу и лист
-spreadsheet = client.open("Chet-el mijozlar")
-worksheet = spreadsheet.worksheet("MyLandingDB")
+spreadsheet = client.open("Xonsaroy_Online_Chat")
+worksheet = spreadsheet.worksheet("ADS")  # Сохраняем заявки только в этот лист
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         name = request.form.get('name')
         phone = request.form.get('phone')
-        country = request.form.get('country')
+        city = request.form.get('city')  # Или 'country', если у тебя поле так называется
+        date = datetime.now().strftime('%Y-%m-%d')  # Формат даты: ГГГГ-ММ-ДД
 
-        # Записываем данные в таблицу
-        worksheet.append_row([name, phone, country])
+        worksheet.append_row([
+            name,
+            phone,
+            city,
+            date
+        ])
 
-        # Рендерим страницу с переходом в Telegram
-        return render_template('telegram.html')
+        # Передаём utm для ссылки в Telegram
+        return render_template('telegram.html', utm='ads')
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 1232)), debug=False)
+    app.run(debug=False, host='0.0.0.0', port=1232)
