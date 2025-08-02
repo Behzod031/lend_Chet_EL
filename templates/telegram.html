@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Telegramga o'tish</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.3">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -15,12 +16,12 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1329164648314581');
+    fbq('init', '753178470994975');
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1329164648314581&ev=PageView&noscript=1"/>
+         src="https://www.facebook.com/tr?id=753178470994975&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
@@ -38,8 +39,6 @@
       color: #fff;
       position: relative;
     }
-
-    /* Затемнение на фоне */
     body::after {
       content: "";
       position: absolute;
@@ -49,14 +48,12 @@
       background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
-
     .content {
       position: relative;
       z-index: 2;
       text-align: center;
       padding: 20px;
     }
-
     .message {
       background: rgba(0, 0, 0, 0.5);
       padding: 20px 30px;
@@ -67,7 +64,6 @@
       display: inline-block;
       color: #ffffff;
     }
-
     .button {
       display: inline-block;
       padding: 18px 40px;
@@ -80,12 +76,10 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
     }
-
     .button:hover {
       background: linear-gradient(45deg, #00aaff, #0088cc);
       transform: scale(1.05);
     }
-
     @media (max-width: 768px) {
       .message {
         font-size: 22px;
@@ -97,17 +91,16 @@
     }
   </style>
 </head>
-
 <body>
   <div class="content">
     <div class="message">
-      Turar joy majmualari haqida ma’lumot olish uchun pastdagi tugmani bosing 😊
+      Turar joy majmualari haqida ma’lumot olish uchun pastdagi tugmani bosing 😊<br>
     </div>
     <br>
-    <!-- Deep link: автоматически отправит /start landing -->
-    <a href="https://t.me/Xonsaroy_Onlayn_bot?start=landing" class="button" target="_blank">
-      Telegramga o'tish
-    </a>
+    <!-- Deep link с client_id (Jinja2) -->
+<a href="https://t.me/Xonsaroy_Onlayn_bot?start={{ utm }}" class="button" target="_blank">
+  Telegramga o'tish
+</a>
   </div>
 </body>
 </html>
