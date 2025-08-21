@@ -19,7 +19,7 @@ client = gspread.authorize(creds)
 
 # Открываем таблицу и нужный лист
 spreadsheet = client.open("Xonsaroy_Online_Chat")
-worksheet = spreadsheet.worksheet("ADS")
+worksheet = spreadsheet.worksheet("Efir")
 
 
 # Главная страница (форма)
